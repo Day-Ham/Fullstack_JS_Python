@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app)
 
 app.config["SQLALCHEMY_DATABASE_URI"] ="sqlite:///mydatabase.db"
-app.config=["SQLAlCHEMY_TRACK_MODIFICATIONS"]=False
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
 
