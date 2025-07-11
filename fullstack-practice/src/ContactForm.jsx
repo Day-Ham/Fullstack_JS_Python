@@ -26,8 +26,9 @@ const ContactForm = () => {
         const error = await response.json()
         alert(error.message)
      }else{
-        //Success
+       
      }
+      console.log("Success")
   }
 
 
