@@ -5,6 +5,7 @@ import ContactForm from './ContactForm'
 
 function App() {
   const[contacts,setContacts]=useState([])
+  const[isModalOpen,setIsModalOpen]=useState(false)
   useEffect(()=>{
     fetchContacts()
   },[])
@@ -16,9 +17,26 @@ function App() {
     setContacts(data.contacts)
   }
 
+  const closeModel =()=>{
+    setIsModalOpen(false)
+  }
+  const openModelCreate =()=>{
+    if(!isModalOpen) setIsModalOpen(true)
+    
+  }
+
   return<>
   <ContactList contacts={contacts}></ContactList>
-  <ContactForm></ContactForm>
+  <button onClick={openModelCreate}>Create New Contact</button>
+  {
+    isModalOpen &&<div className='modal'>
+      <div className='model-content'>
+        <span className='close' onClick={closeModel}>&times;</span> 
+        <ContactForm></ContactForm>
+      </div>
+    </div>
+  }
+ 
   </>
 }
 
